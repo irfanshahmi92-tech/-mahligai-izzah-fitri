@@ -1,475 +1,339 @@
+```html
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Walimatulurus Nurul Izzah & Muhammad Fitri</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            cursive: ['Alex Brush', 'cursive'],
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Plus Jakarta Sans', 'sans-serif']
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KURSUS APMS SIRI 3/2026 - REJIMEN 509 ASKAR WATANIAH</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        military: {
+                            dark: '#1d2a10',
+                            green: '#3b4e28',
+                            light: '#5c7343',
+                            accent: '#d4af37',
+                            red: '#cc1100',
+                            bg: '#f4f6f0'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Teko', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
-
-  <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: linear-gradient(135deg, #fff5f7 0%, #f0fdf4 50%, #faf5ff 100%);
-      color: #374151;
-      overflow-x: hidden;
-    }
-
-    .font-cursive { font-family: 'Alex Brush', cursive; }
-    .font-serif { font-family: 'Playfair Display', serif; }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(244, 114, 182, 0.25);
-    }
-
-    .glow-effect {
-      box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.15), 0 8px 10px -6px rgba(16, 185, 129, 0.1);
-    }
-
-    /* Animasi Kelopak Bunga Gugur */
-    .petal {
-      position: fixed;
-      top: -10%;
-      user-select: none;
-      pointer-events: none;
-      z-index: 40;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      0% { opacity: 1; top: -10%; transform: translateX(0) rotate(0deg); }
-      100% { opacity: 0.2; top: 105%; transform: translateX(100px) rotate(360deg); }
-    }
-
-    /* Skrin Intro / Sampul Pembuka */
-    #intro-screen {
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-  </style>
+    </script>
+    <style>
+        .military-gradient {
+            background: linear-gradient(135deg, #1d2a10 0%, #3b4e28 100%);
+        }
+    </style>
 </head>
-<body class="relative min-h-screen pb-16">
+<body class="bg-military-bg font-body text-gray-800 min-h-screen flex flex-col">
 
-  <!-- AUDIO LATAR BELAKANG (Lagu Romantik Instrumental) -->
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf756.mp3?filename=romantic-wedding-112190.mp3" type="audio/mpeg">
-  </audio>
+    <!-- Header / Navbar -->
+    <header class="military-gradient text-white shadow-lg border-b-4 border-military-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col items-center text-center gap-4">
+                
+                <!-- Logo Utama Lencana Askar Wataniah (118792.png) -->
+                <div class="w-24 h-28 sm:w-28 sm:h-32 bg-black/40 p-2 rounded-xl border-2 border-military-accent shadow-xl flex items-center justify-center backdrop-blur-md flex-shrink-0 overflow-hidden">
+                    <img id="mainLogo" 
+                         src="118792.png" 
+                         onerror="handleImageError(this)"
+                         alt="" 
+                         class="max-h-full max-w-full object-contain filter drop-shadow-lg">
+                </div>
 
-  <!-- BUTANG AUDIO FLOATING -->
-  <button id="music-btn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-50 bg-pink-500 hover:bg-pink-600 text-white p-3.5 rounded-full shadow-lg transition hidden items-center justify-center animate-pulse">
-    <i id="music-icon" data-lucide="music" class="w-5 h-5"></i>
-  </button>
+                <div>
+                    <span class="inline-block px-3 py-1 rounded text-xs font-bold bg-military-accent text-military-dark uppercase tracking-wider mb-2 shadow-sm">
+                        Laman Pentadbiran & Pengurusan
+                    </span>
+                    <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl tracking-wide uppercase leading-none font-bold text-white drop-shadow-sm">
+                        KURSUS ASAS PRAJURIT MUDA SUKARELA (APMS)
+                    </h1>
+                    <p class="text-military-accent text-xl font-heading tracking-widest uppercase mt-1">
+                        SIRI 3/2026 • REJIMEN 509 ASKAR WATANIAH
+                    </p>
+                </div>
 
-  <!-- SKRIN PEMBUKA (COVER / INTRO) -->
-  <div id="intro-screen" class="fixed inset-0 z-50 bg-gradient-to-br from-pink-900 via-purple-900 to-gray-900 flex items-center justify-center p-4">
-    <div class="glass-card max-w-md w-full p-8 rounded-3xl text-center space-y-6 shadow-2xl border border-pink-300/40 bg-white/95">
-      <div class="inline-flex p-3 bg-pink-50 text-pink-600 rounded-full animate-bounce">
-        <i data-lucide="heart" class="w-8 h-8"></i>
-      </div>
-      <div class="space-y-2">
-        <span class="text-xs uppercase tracking-widest text-emerald-600 font-bold bg-emerald-50 px-3 py-1 rounded-full">Undangan Majlis</span>
-        <h2 class="font-cursive text-4xl text-pink-600">Nurul Izzah & Muhammad Fitri</h2>
-        <p class="text-xs text-gray-500 font-serif italic">"Dengan penuh kesyukuran kami menjemput Dato' / Datin / Tuan / Puan / Encik / Cik"</p>
-      </div>
-      <button onclick="openInvitation()" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3.5 rounded-2xl shadow-md transition flex items-center justify-center space-x-2 text-sm">
-        <i data-lucide="mail-open" class="w-5 h-5"></i>
-        <span>Buka Undangan</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Bekas untuk Animasi Kelopak Bunga -->
-  <div id="petal-container" class="fixed inset-0 pointer-events-none z-30"></div>
-
-  <!-- KANDUNGAN UTAMA WEB -->
-  <main class="max-w-xl mx-auto px-4 pt-8 space-y-8">
-
-    <!-- 1. UTAMA & TAJUK -->
-    <section class="text-center space-y-6 glass-card p-8 rounded-3xl glow-effect relative overflow-hidden">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-gradient-to-r from-pink-400 via-purple-500 to-emerald-400 rounded-full"></div>
-
-      <div class="flex justify-center text-pink-500 mb-2">
-        <i data-lucide="sparkles" class="w-9 h-9 animate-bounce"></i>
-      </div>
-
-      <div class="space-y-2">
-        <p class="text-xs tracking-widest uppercase font-bold text-emerald-600 bg-emerald-50 inline-block px-3 py-1 rounded-full border border-emerald-200">Walimatulurus</p>
-        <p class="text-xs text-gray-500 font-serif italic">"Assalamualaikum WBT & Salam Sejahtera"</p>
-      </div>
-
-      <div class="py-2">
-        <p class="text-xs text-gray-600 mb-1">Dengan Penuh Kesyukuran Menyertai Hasrat Kami</p>
-        <p class="font-serif font-bold text-gray-800 text-base">Azman bin Abdul Rani</p>
-        <p class="text-xs text-pink-500 font-serif font-bold">&</p>
-        <p class="font-serif font-bold text-gray-800 text-base">Noraini binti Khamis</p>
-        <p class="text-xs text-gray-500 mt-2">Mempersilakan hadir ke majlis perkahwinan anakanda kesayangan kami:</p>
-      </div>
-
-      <!-- Nama Pengantin Penuh -->
-      <div class="py-5 space-y-3 bg-gradient-to-br from-pink-50 via-purple-50 to-emerald-50 rounded-2xl border border-pink-200/60 shadow-inner">
-        <div>
-          <h1 class="font-cursive text-5xl md:text-6xl text-pink-600 leading-relaxed">Nurul Izzah</h1>
-          <p class="text-xs text-gray-600 font-serif font-medium">( Nurul Izzah binti Azman )</p>
-        </div>
-
-        <div class="flex items-center justify-center space-x-2">
-          <span class="h-px w-8 bg-pink-300"></span>
-          <span class="text-xs tracking-widest text-emerald-600 uppercase font-bold">DENGAN</span>
-          <span class="h-px w-8 bg-pink-300"></span>
-        </div>
-
-        <div>
-          <h1 class="font-cursive text-5xl md:text-6xl text-purple-600 leading-relaxed">Muhammad Fitri</h1>
-          <p class="text-xs text-gray-600 font-serif font-medium">( Muhammad Fitri bin Hashim )</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. TARIKH & COUNTDOWN TIMER -->
-    <section class="glass-card p-6 rounded-3xl text-center space-y-6 glow-effect">
-      <div class="space-y-2">
-        <div class="inline-flex items-center justify-center space-x-2 text-pink-600 bg-pink-50 px-4 py-1.5 rounded-full border border-pink-100">
-          <i data-lucide="calendar" class="w-5 h-5"></i>
-          <h2 class="font-serif font-bold text-lg">Tarikh & Masa</h2>
-        </div>
-        <p class="text-2xl font-serif font-bold text-gray-800">Ahad, 30 Ogos 2026</p>
-        <p class="text-xs font-semibold text-emerald-600">14 Safar 1448H</p>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3 text-left max-w-sm mx-auto text-xs bg-white/90 p-4 rounded-2xl border border-pink-100 shadow-sm">
-        <div class="flex items-start space-x-2">
-          <i data-lucide="clock" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
-          <div>
-            <span class="font-bold text-gray-700 block">Jam Jamuan:</span>
-            <span class="text-gray-600">11.00 pagi - 4.00 petang</span>
-          </div>
-        </div>
-        <div class="flex items-start space-x-2">
-          <i data-lucide="heart" class="w-4 h-4 text-pink-500 mt-0.5 shrink-0"></i>
-          <div>
-            <span class="font-bold text-gray-700 block">Ketibaan Pengantin:</span>
-            <span class="text-gray-600">12.40 tengah hari</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="space-y-3 pt-2">
-        <p class="text-xs uppercase tracking-wider text-emerald-600 font-bold">Menghitung Detik Bahagia</p>
-        <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto">
-          <div class="bg-gradient-to-b from-pink-500 to-rose-600 text-white p-3 rounded-2xl shadow-md">
-            <span id="days" class="block text-2xl font-bold font-serif">00</span>
-            <span class="text-[10px] uppercase tracking-wider opacity-90">Hari</span>
-          </div>
-          <div class="bg-gradient-to-b from-pink-500 to-rose-600 text-white p-3 rounded-2xl shadow-md">
-            <span id="hours" class="block text-2xl font-bold font-serif">00</span>
-            <span class="text-[10px] uppercase tracking-wider opacity-90">Jam</span>
-          </div>
-          <div class="bg-gradient-to-b from-pink-500 to-rose-600 text-white p-3 rounded-2xl shadow-md">
-            <span id="minutes" class="block text-2xl font-bold font-serif">00</span>
-            <span class="text-[10px] uppercase tracking-wider opacity-90">Minit</span>
-          </div>
-          <div class="bg-gradient-to-b from-pink-500 to-rose-600 text-white p-3 rounded-2xl shadow-md">
-            <span id="seconds" class="block text-2xl font-bold font-serif">00</span>
-            <span class="text-[10px] uppercase tracking-wider opacity-90">Saat</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. LOKASI MAJLIS -->
-    <section class="glass-card p-6 rounded-3xl text-center space-y-5 glow-effect">
-      <div class="inline-flex items-center justify-center space-x-2 text-emerald-600 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-100">
-        <i data-lucide="map-pin" class="w-5 h-5"></i>
-        <h2 class="font-serif font-bold text-lg">Lokasi Majlis</h2>
-      </div>
-
-      <div class="space-y-1">
-        <p class="font-bold text-gray-800 text-base">Wisma JKKK Felda Chemomoi</p>
-        <p class="text-xs text-gray-600 leading-relaxed">28310 Triang, Pahang Darul Makmur</p>
-      </div>
-
-      <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-        <a href="https://maps.google.com/?q=Wisma+JKKK+Felda+Chemomoi+28310+Triang+Pahang" target="_blank" class="inline-flex items-center justify-center space-x-2 bg-white hover:bg-pink-50 text-gray-700 px-5 py-2.5 rounded-xl border border-pink-200 text-xs font-bold shadow-sm transition">
-          <i data-lucide="map" class="w-4 h-4 text-pink-500"></i>
-          <span>Google Maps</span>
-        </a>
-        <a href="https://waze.com/ul?q=Wisma%20JKKK%20Felda%20Chemomoi" target="_blank" class="inline-flex items-center justify-center space-x-2 bg-white hover:bg-sky-50 text-gray-700 px-5 py-2.5 rounded-xl border border-sky-200 text-xs font-bold shadow-sm transition">
-          <i data-lucide="navigation" class="w-4 h-4 text-sky-500"></i>
-          <span>Waze Navigation</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- 4. HUBUNGI / CONTACT PERSON -->
-    <section class="glass-card p-6 rounded-3xl text-center space-y-4 glow-effect">
-      <div class="inline-flex items-center justify-center space-x-2 text-purple-600 bg-purple-50 px-4 py-1.5 rounded-full border border-purple-100">
-        <i data-lucide="phone-call" class="w-5 h-5"></i>
-        <h2 class="font-serif font-bold text-lg">Hubungi Kami</h2>
-      </div>
-
-      <div class="grid grid-cols-1 gap-2 max-w-md mx-auto pt-1">
-        <div class="flex items-center justify-between bg-white/90 p-3 rounded-2xl border border-pink-100 shadow-sm">
-          <div class="text-left">
-            <p class="text-xs font-bold text-gray-800">Azman (Bapa)</p>
-            <p class="text-[11px] text-gray-500">018-5870942</p>
-          </div>
-          <a href="https://wa.me/60185870942?text=Assalamualaikum,%20saya%20ingin%20bertanya%20mengenai%20majlis%20perkahwinan" target="_blank" class="inline-flex items-center space-x-1 bg-emerald-50 text-emerald-600 hover:bg-emerald-100 px-3 py-1.5 rounded-xl text-xs font-bold border border-emerald-200 transition">
-            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-            <span>WhatsApp</span>
-          </a>
-        </div>
-
-        <div class="flex items-center justify-between bg-white/90 p-3 rounded-2xl border border-pink-100 shadow-sm">
-          <div class="text-left">
-            <p class="text-xs font-bold text-gray-800">Noraini (Ibu)</p>
-            <p class="text-[11px] text-gray-500">016-9602341</p>
-          </div>
-          <a href="https://wa.me/60169602341?text=Assalamualaikum,%20saya%20ingin%20bertanya%20mengenai%20majlis%20perkahwinan" target="_blank" class="inline-flex items-center space-x-1 bg-emerald-50 text-emerald-600 hover:bg-emerald-100 px-3 py-1.5 rounded-xl text-xs font-bold border border-emerald-200 transition">
-            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-            <span>WhatsApp</span>
-          </a>
-        </div>
-
-        <div class="flex items-center justify-between bg-white/90 p-3 rounded-2xl border border-pink-100 shadow-sm">
-          <div class="text-left">
-            <p class="text-xs font-bold text-gray-800">Izham (Wakil)</p>
-            <p class="text-[11px] text-gray-500">016-3374576</p>
-          </div>
-          <a href="https://wa.me/60163374576?text=Assalamualaikum,%20saya%20ingin%20bertanya%20mengenai%20majlis%20perkahwinan" target="_blank" class="inline-flex items-center space-x-1 bg-emerald-50 text-emerald-600 hover:bg-emerald-100 px-3 py-1.5 rounded-xl text-xs font-bold border border-emerald-200 transition">
-            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-            <span>WhatsApp</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. RUANG UCAPAN & DOA -->
-    <section class="glass-card p-6 rounded-3xl space-y-5 glow-effect">
-      <div class="text-center space-y-1">
-        <div class="inline-flex items-center justify-center space-x-2 text-pink-600 bg-pink-50 px-4 py-1.5 rounded-full border border-pink-100">
-          <i data-lucide="heart-handshake" class="w-5 h-5"></i>
-          <h2 class="font-serif font-bold text-lg">Titipan Ucapan & Doa</h2>
-        </div>
-      </div>
-
-      <div class="space-y-3 max-w-md mx-auto text-xs">
-        <div>
-          <label class="block font-bold text-gray-700 mb-1">Nama Anda</label>
-          <input type="text" id="wisherName" placeholder="Masukkan nama anda" class="w-full px-4 py-2.5 rounded-xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white">
-        </div>
-
-        <div>
-          <div class="flex justify-between items-center mb-1">
-            <label class="block font-bold text-gray-700">Mesej Ucapan</label>
-            <button type="button" onclick="enhanceWithAI()" id="aiBtn" class="inline-flex items-center space-x-1.5 text-xs text-purple-700 bg-purple-100 hover:bg-purple-200 border border-purple-300 px-3 py-1 rounded-lg font-bold transition shadow-sm">
-              <i data-lucide="wand-2" class="w-3.5 h-3.5 text-purple-600"></i>
-              <span>✨ Perindah dengan AI</span>
-            </button>
-          </div>
-          <textarea id="wisherMessage" rows="3" placeholder="Tuliskan ucapan ringkas anda di sini..." class="w-full px-4 py-3 rounded-xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white leading-relaxed"></textarea>
-        </div>
-
-        <button type="button" onclick="addWish()" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-xl shadow-md transition flex items-center justify-center space-x-2 text-sm">
-          <i data-lucide="send" class="w-4 h-4"></i>
-          <span>Hantar Ucapan</span>
-        </button>
-      </div>
-
-      <!-- Senarai Ucapan Tetamu -->
-      <div class="pt-4 border-t border-pink-100">
-        <h3 class="font-serif font-bold text-sm text-gray-800 mb-3 text-center">Ucapan Daripada Tetamu</h3>
-        <div id="wishesContainer" class="space-y-3 max-h-60 overflow-y-auto pr-1">
-          <div class="bg-white/90 p-3.5 rounded-2xl border border-pink-100 text-xs space-y-1 shadow-sm">
-            <div class="flex justify-between items-center">
-              <span class="font-bold text-pink-600">Keluarga Hj Abdullah</span>
-              <span class="text-[10px] text-gray-400">Baru sahaja</span>
+                <div class="flex flex-col items-center mt-1">
+                    <span class="text-xs text-gray-300 mb-1">Status Rekod Latihan:</span>
+                    <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-yellow-500/20 text-yellow-300 border border-yellow-500/40">
+                        <span class="w-2.5 h-2.5 mr-2 rounded-full bg-yellow-400 animate-pulse"></span>
+                        Draf Perancangan Terkini
+                    </span>
+                </div>
             </div>
-            <p class="text-gray-600 italic">"Selamat pengantin baru Izzah & Fitri! Semoga ikatan perkahwinan ini dilimpahi keberkatan & kasih sayang hingga ke jannah."</p>
-          </div>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- FOOTER -->
-    <footer class="text-center text-xs text-gray-400 py-4 space-y-1">
-      <p class="font-semibold text-pink-500">Walimatulurus Nurul Izzah & Muhammad Fitri</p>
-      <p class="text-[10px]">30 Ogos 2026 • Triang, Pahang</p>
+    <!-- Content Utama -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Notis / Info Box -->
+        <div class="bg-white rounded-lg shadow-md border-l-4 border-military-accent p-4 mb-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 text-military-accent text-xl mt-0.5">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm font-semibold text-military-dark uppercase tracking-wider">Nota Penting Pentadbiran</h3>
+                    <p class="text-sm text-gray-600 mt-1">
+                        Senarai ahli jawatankuasa di bawah adalah berdasarkan rekod "Aktiviti Latihan" terkini. Sila tekan nombor telefon atau butang <span class="text-emerald-600 font-bold"><i class="fa-brands fa-whatsapp"></i> WhatsApp</span> untuk terus berhubung terus dengan AJK bertugas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kad Ringkasan Statistik -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Jumlah Ahli Jawatankuasa</p>
+                    <p class="text-2xl font-bold text-military-dark" id="totalCount">20</p>
+                </div>
+                <div class="w-12 h-12 bg-military-green/10 text-military-green rounded-full flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Jawatan Utama (Tertinggi)</p>
+                    <p class="text-2xl font-bold text-military-dark">6</p>
+                </div>
+                <div class="w-12 h-12 bg-military-accent/20 text-military-dark rounded-full flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Biro / AJK Khusus</p>
+                    <p class="text-2xl font-bold text-military-dark">7 Biro</p>
+                </div>
+                <div class="w-12 h-12 bg-military-green/10 text-military-green rounded-full flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Rekod Dikemaskini</p>
+                    <p class="text-2xl font-bold text-emerald-600" id="updatedCount">3 / 20</p>
+                </div>
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-id-card"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kawalan Carian & Penapis -->
+        <div class="bg-white p-4 rounded-t-lg shadow border-b border-gray-200 flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div class="relative w-full md:w-96">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="searchInput" placeholder="Cari nama, jawatan, atau no. badan..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-military-green focus:border-transparent text-sm">
+            </div>
+            
+            <div class="flex flex-wrap items-center gap-2 w-full md:w-auto justify-end">
+                <select id="categoryFilter" class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-military-green">
+                    <option value="ALL">Semua Jawatan</option>
+                    <option value="UTAMA">Kepimpinan Utama</option>
+                    <option value="AJK">AJK Biro</option>
+                </select>
+                
+                <button onclick="window.print()" class="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md text-sm font-medium transition flex items-center gap-2">
+                    <i class="fa-solid fa-print"></i> Cetak
+                </button>
+            </div>
+        </div>
+
+        <!-- Jadual Maklumat -->
+        <div class="bg-white rounded-b-lg shadow overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse" id="ajkTable">
+                    <thead>
+                        <tr class="military-gradient text-white text-xs uppercase tracking-wider">
+                            <th class="py-3.5 px-4 font-semibold">Bil</th>
+                            <th class="py-3.5 px-4 font-semibold">Jawatan / Pangkat</th>
+                            <th class="py-3.5 px-4 font-semibold">Nama Pegawai / Kakitangan</th>
+                            <th class="py-3.5 px-4 font-semibold">No. Badan</th>
+                            <th class="py-3.5 px-4 font-semibold">Kategori</th>
+                            <th class="py-3.5 px-4 font-semibold">Hubungi (Telefon & WhatsApp)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm" id="tableBody">
+                        <!-- Data dimasukkan secara dinamik -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Paparan Jika Tiada Keputusan -->
+            <div id="noResults" class="hidden p-8 text-center text-gray-500">
+                <i class="fa-solid fa-user-slash text-4xl mb-3 text-gray-300"></i>
+                <p>Tiada carian yang berpadanan ditemukan.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-military-dark text-gray-400 py-6 border-t-2 border-military-accent mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm flex flex-col items-center justify-center gap-2">
+            <p class="font-semibold text-gray-200 tracking-wider">REJIMEN 509 ASKAR WATANIAH</p>
+            <p class="text-xs text-gray-400">Hak Cipta Terpelihara &copy; 2026 - Pengurusan APMS Siri 3/2026</p>
+        </div>
     </footer>
 
-  </main>
+    <!-- Script JavaScript -->
+    <script>
+        const committeeData = [
+            { id: 1, jawatan: "YDP", nama: "AQIL", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "UTAMA" },
+            { id: 2, jawatan: "NYDP", nama: "MUHAMMAD RAFIQ HAIKAL BIN RUSLI", noBadan: "6310850", phone: "014-3160322", type: "UTAMA" },
+            { id: 3, jawatan: "Setiausaha", nama: "SHAHMI", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "UTAMA" },
+            { id: 4, jawatan: "Pen. Setiausaha", nama: "ATIQAH", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "UTAMA" },
+            { id: 5, jawatan: "Bendahari", nama: "SYAWAL", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "UTAMA" },
+            { id: 6, jawatan: "Pen. Bendahari", nama: "AMNI", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "UTAMA" },
+            { id: 7, jawatan: "AJK Makan (Ketua)", nama: "AMIRUL", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 8, jawatan: "AJK Makan (Pen.)", nama: "AMIR", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 9, jawatan: "AJK Multimedia (Ketua)", nama: "AMIR", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 10, jawatan: "AJK Multimedia (Pen.)", nama: "NAJMI", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 11, jawatan: "AJK Harta (Ketua)", nama: "HANIF SYAZWAN BIN ZAINAL", noBadan: "6310843", phone: "016-6938042", type: "AJK" },
+            { id: 12, jawatan: "AJK Harta (Pen.)", nama: "ANIQ", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 13, jawatan: "AJK Agama (Ketua)", nama: "AFIQ", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 14, jawatan: "AJK Agama (Pen.)", nama: "MOHAMAD IMRON HANAPI BIN SUHARI", noBadan: "6310859", phone: "010-460 1227", type: "AJK" },
+            { id: 15, jawatan: "AJK Senjata (Ketua)", nama: "TANG", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 16, jawatan: "AJK Senjata (Pen.)", nama: "SYAHMI", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 17, jawatan: "AJK Kesihatan (Ketua)", nama: "SALIZA", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 18, jawatan: "AJK Kesihatan (Pen.)", nama: "HELMI / ADHA", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 19, jawatan: "AJK Sukan (Ketua)", nama: "ADHA", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 20, jawatan: "AJK Sukan (Pen.)", nama: "AIZAM", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" }
+        ];
 
-  <script>
-    lucide.createIcons();
+        function handleImageError(img) {
+            img.onerror = null;
+            img.src = 'https://upload.wikimedia.org/wikipedia/commons/2/26/Badge_of_the_Malaysian_Territorial_Army_Regiment.png';
+        }
 
-    // BUKA UNDANGAN & MAIN LAGU
-    function openInvitation() {
-      const intro = document.getElementById('intro-screen');
-      const music = document.getElementById('bg-music');
-      const musicBtn = document.getElementById('music-btn');
+        // Helper untuk mendapatkan format nombor telefon antarabangsa
+        function getFormattedPhone(phoneStr) {
+            let cleanNum = phoneStr.replace(/[^0-9]/g, '');
+            if (cleanNum.startsWith('0')) {
+                cleanNum = '6' + cleanNum;
+            }
+            return cleanNum;
+        }
 
-      intro.style.opacity = '0';
-      intro.style.transform = 'scale(1.05)';
-      setTimeout(() => {
-        intro.style.display = 'none';
-      }, 800);
+        // Helper untuk format url WhatsApp
+        function getWaUrl(phoneStr, jawatan) {
+            const cleanNum = getFormattedPhone(phoneStr);
+            const msg = encodeURIComponent(`Salam, saya berhubung berkenaan Kursus APMS Siri 3/2026 Rejimen 509 Askar Wataniah (${jawatan}).`);
+            return `https://wa.me/${cleanNum}?text=${msg}`;
+        }
 
-      music.play().catch(() => {});
-      musicBtn.style.display = 'flex';
-    }
+        // Fungsi Buka WhatsApp Terus Menggunakan JavaScript
+        function openWhatsApp(phoneStr, jawatan) {
+            const url = getWaUrl(phoneStr, jawatan);
+            window.open(url, '_blank');
+        }
 
-    // TOGGLE MUSIC PLAY / PAUSE
-    let isPlaying = true;
-    function toggleMusic() {
-      const music = document.getElementById('bg-music');
-      const musicIcon = document.getElementById('music-icon');
-      const musicBtn = document.getElementById('music-btn');
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            const noResults = document.getElementById('noResults');
+            tbody.innerHTML = '';
 
-      if (isPlaying) {
-        music.pause();
-        musicIcon.setAttribute('data-lucide', 'volume-x');
-        musicBtn.classList.remove('animate-pulse');
-        isPlaying = false;
-      } else {
-        music.play();
-        musicIcon.setAttribute('data-lucide', 'music');
-        musicBtn.classList.add('animate-pulse');
-        isPlaying = true;
-      }
-      lucide.createIcons();
-    }
+            if (data.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
 
-    // ANIMASI KELOPAK BUNGA GUGUR
-    function createPetals() {
-      const container = document.getElementById('petal-container');
-      const petalIcons = ['🌸', '🌺', '✨', '🍃'];
-      
-      for (let i = 0; i < 15; i++) {
-        const petal = document.createElement('div');
-        petal.className = 'petal';
-        petal.innerText = petalIcons[Math.floor(Math.random() * petalIcons.length)];
-        petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
-        petal.style.animationDelay = Math.random() * 5 + 's';
-        petal.style.fontSize = (Math.random() * 10 + 12) + 'px';
-        container.appendChild(petal);
-      }
-    }
-    createPetals();
+            data.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                tr.className = index % 2 === 0 ? 'bg-white hover:bg-gray-50' : 'bg-gray-50/50 hover:bg-gray-100';
 
-    // COUNTDOWN TIMER
-    function updateCountdown() {
-      const eventDate = new Date("August 30, 2026 11:00:00").getTime();
-      const now = new Date().getTime();
-      const difference = eventDate - now;
+                const isUtama = item.type === 'UTAMA';
+                const typeBadge = isUtama 
+                    ? `<span class="px-2 py-0.5 text-xs font-semibold rounded bg-amber-100 text-amber-800 border border-amber-300">Kepimpinan</span>`
+                    : `<span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-100 text-emerald-800 border border-emerald-300">Biro / AJK</span>`;
 
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                const noBadanDisplay = item.noBadan.includes('Akan') 
+                    ? `<span class="text-gray-400 italic">${item.noBadan}</span>` 
+                    : `<span class="font-mono font-bold text-gray-700 bg-gray-100 px-2 py-0.5 rounded border border-gray-200">${item.noBadan}</span>`;
 
-        document.getElementById("days").innerText = days < 10 ? '0' + days : days;
-        document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
-        document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
-        document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
-      }
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+                let phoneDisplay = `<span class="text-gray-400 italic">${item.phone}</span>`;
+                
+                if (!item.phone.includes('Akan')) {
+                    const cleanPhone = item.phone.replace(/[^0-9]/g, '');
+                    const waUrl = getWaUrl(item.phone, item.jawatan);
 
-    // AI ENHANCER LOGIC
-    function enhanceWithAI() {
-      const messageTextarea = document.getElementById("wisherMessage");
-      const aiBtn = document.getElementById("aiBtn");
-      const currentText = messageTextarea.value.trim();
+                    phoneDisplay = `
+                        <div class="flex flex-wrap items-center gap-2">
+                            <a href="tel:${cleanPhone}" title="Panggil Nombor" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded text-gray-700 bg-gray-100 hover:bg-gray-200 border border-gray-300 transition">
+                                <i class="fa-solid fa-phone text-military-green"></i> ${item.phone}
+                            </a>
+                            <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition active:scale-95 cursor-pointer decoration-0">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                            </a>
+                        </div>
+                    `;
+                }
 
-      if (!currentText) {
-        alert("Sila taip ucapan ringkas terlebih dahulu sebelum menggunakan peranti AI.");
-        return;
-      }
+                tr.innerHTML = `
+                    <td class="py-3 px-4 text-gray-500 font-medium">${index + 1}</td>
+                    <td class="py-3 px-4 font-bold text-military-dark">${item.jawatan}</td>
+                    <td class="py-3 px-4 font-semibold ${item.nama.includes('Akan') ? 'text-gray-400 italic' : 'text-gray-800'}">${item.nama}</td>
+                    <td class="py-3 px-4">${noBadanDisplay}</td>
+                    <td class="py-3 px-4">${typeBadge}</td>
+                    <td class="py-3 px-4">${phoneDisplay}</td>
+                `;
+                tbody.appendChild(tr);
+            });
 
-      const originalBtnContent = aiBtn.innerHTML;
-      aiBtn.disabled = true;
-      aiBtn.innerHTML = `<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i> <span>Memurni...</span>`;
-      lucide.createIcons();
+            document.getElementById('totalCount').innerText = data.length;
+            
+            // Hitung berapa jawatan yang telah dikemas kini maklumat lengkapnya
+            const updated = committeeData.filter(i => !i.noBadan.includes('Akan') || !i.phone.includes('Akan')).length;
+            document.getElementById('updatedCount').innerText = `${updated} / ${committeeData.length}`;
+        }
 
-      const poeticTemplates = [
-        `Selamat pengantin baru buat Nurul Izzah & Muhammad Fitri. Semoga bahtera perkahwinan yang dibina sentiasa dilimpahi kasih sayang, keberkatan, dan kebahagiaan hingga ke jannah-Nya. Aamiin.`,
-        `Barakallahulakuma wa baraka 'alaikuma wa jama'a bainakuma fii khair. Tahniah Nurul Izzah & Muhammad Fitri! Moga ikatan suci ini disinari mawaddah & warahmah.`,
-        `Tahniah Nurul Izzah & Muhammad Fitri atas penyatuan dua jiwa ini. Semoga setiap langkah kehidupan berpasangan ini sentiasa dirahmati dan kekal bahagia selamanya.`
-      ];
+        // Fungsi Carian & Filter
+        function filterData() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
 
-      setTimeout(() => {
-        const randomIndex = Math.floor(Math.random() * poeticTemplates.length);
-        messageTextarea.value = poeticTemplates[randomIndex];
-        aiBtn.disabled = false;
-        aiBtn.innerHTML = originalBtnContent;
-        lucide.createIcons();
-      }, 600);
-    }
+            const filtered = committeeData.filter(item => {
+                const matchesSearch = item.jawatan.toLowerCase().includes(query) || 
+                                      item.nama.toLowerCase().includes(query) || 
+                                      item.noBadan.toLowerCase().includes(query) ||
+                                      item.phone.toLowerCase().includes(query);
+                const matchesCategory = category === 'ALL' || item.type === category;
+                return matchesSearch && matchesCategory;
+            });
 
-    // TAMBAH UCAPAN
-    function addWish() {
-      const nameInput = document.getElementById("wisherName");
-      const messageInput = document.getElementById("wisherMessage");
-      const container = document.getElementById("wishesContainer");
+            renderTable(filtered);
+        }
 
-      const name = nameInput.value.trim();
-      const message = messageInput.value.trim();
+        document.getElementById('searchInput').addEventListener('input', filterData);
+        document.getElementById('categoryFilter').addEventListener('change', filterData);
 
-      if (!name || !message) {
-        alert("Sila isi nama dan mesej ucapan anda.");
-        return;
-      }
-
-      const wishCard = document.createElement("div");
-      wishCard.className = "bg-white/90 p-3.5 rounded-2xl border border-pink-100 text-xs space-y-1 shadow-sm transform transition-all duration-300 scale-95 opacity-0";
-      wishCard.innerHTML = `
-        <div class="flex justify-between items-center">
-          <span class="font-bold text-pink-600">${escapeHtml(name)}</span>
-          <span class="text-[10px] text-gray-400">Baru sahaja</span>
-        </div>
-        <p class="text-gray-600 italic">"${escapeHtml(message)}"</p>
-      `;
-
-      container.prepend(wishCard);
-
-      setTimeout(() => {
-        wishCard.classList.remove("scale-95", "opacity-0");
-      }, 50);
-
-      nameInput.value = "";
-      messageInput.value = "";
-    }
-
-    function escapeHtml(text) {
-      TheDiv = document.createElement('div');
-      TheDiv.innerText = text;
-      return TheDiv.innerHTML;
-    }
-  </script>
+        // Muatkan Data Awal
+        window.onload = function() {
+            renderTable(committeeData);
+        };
+    </script>
 </body>
 </html>
+
+```
