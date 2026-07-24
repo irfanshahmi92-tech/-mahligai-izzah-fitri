@@ -1,4 +1,4 @@
-                ```html
+            ```html
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -71,7 +71,7 @@
                     <span class="text-xs text-gray-300 mb-1">Status Rekod Latihan:</span>
                     <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                         <span class="w-2.5 h-2.5 mr-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        Dikemaskini Terkini
+                        Rekod Lengkap Sepenuhnya
                     </span>
                 </div>
             </div>
@@ -90,17 +90,26 @@
                 <div class="ml-3">
                     <h3 class="text-sm font-semibold text-military-dark uppercase tracking-wider">Nota Penting Pentadbiran</h3>
                     <p class="text-sm text-gray-600 mt-1">
-                        Senarai ahli jawatankuasa di bawah adalah berdasarkan rekod kemaskini terkini. Sila tekan nombor telefon atau butang <span class="text-emerald-600 font-bold"><i class="fa-brands fa-whatsapp"></i> WhatsApp</span> untuk berhubung terus dengan AJK bertugas.
+                        Senarai AJK dan Staf/Jurulatih di bawah telah dikemas kini sepenuhnya. Sila tekan nombor telefon atau butang <span class="text-emerald-600 font-bold"><i class="fa-brands fa-whatsapp"></i> WhatsApp</span> untuk berhubung terus dengan pegawai/kakitangan bertugas.
                     </p>
                 </div>
             </div>
         </div>
 
         <!-- Kad Ringkasan Statistik -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex items-center justify-between border-l-4 border-l-military-accent">
+                <div>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Penuntut APMS</p>
+                    <p class="text-2xl font-bold text-military-dark">29 Orang</p>
+                </div>
+                <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+            </div>
             <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex items-center justify-between">
                 <div>
-                    <p class="text-xs text-gray-500 uppercase font-semibold">Jumlah Ahli Jawatankuasa</p>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Jumlah AJK</p>
                     <p class="text-2xl font-bold text-military-dark" id="totalCount">20</p>
                 </div>
                 <div class="w-12 h-12 bg-military-green/10 text-military-green rounded-full flex items-center justify-center text-xl">
@@ -109,16 +118,16 @@
             </div>
             <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex items-center justify-between">
                 <div>
-                    <p class="text-xs text-gray-500 uppercase font-semibold">Jawatan Utama (Tertinggi)</p>
-                    <p class="text-2xl font-bold text-military-dark">6</p>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Staf / Jurulatih</p>
+                    <p class="text-2xl font-bold text-military-dark" id="stafCount">4</p>
                 </div>
-                <div class="w-12 h-12 bg-military-accent/20 text-military-dark rounded-full flex items-center justify-center text-xl">
-                    <i class="fa-solid fa-user-tie"></i>
+                <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-user-shield"></i>
                 </div>
             </div>
             <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex items-center justify-between">
                 <div>
-                    <p class="text-xs text-gray-500 uppercase font-semibold">Biro / AJK Khusus</p>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Biro Khusus</p>
                     <p class="text-2xl font-bold text-military-dark">7 Biro</p>
                 </div>
                 <div class="w-12 h-12 bg-military-green/10 text-military-green rounded-full flex items-center justify-center text-xl">
@@ -128,7 +137,7 @@
             <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex items-center justify-between">
                 <div>
                     <p class="text-xs text-gray-500 uppercase font-semibold">Rekod Dikemaskini</p>
-                    <p class="text-2xl font-bold text-emerald-600" id="updatedCount">16 / 20</p>
+                    <p class="text-2xl font-bold text-emerald-600" id="updatedCount">24 / 24</p>
                 </div>
                 <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xl">
                     <i class="fa-solid fa-id-card"></i>
@@ -147,9 +156,10 @@
             
             <div class="flex flex-wrap items-center gap-2 w-full md:w-auto justify-end">
                 <select id="categoryFilter" class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-military-green">
-                    <option value="ALL">Semua Jawatan</option>
+                    <option value="ALL">Semua Rekod</option>
                     <option value="UTAMA">Kepimpinan Utama</option>
                     <option value="AJK">AJK Biro</option>
+                    <option value="STAF">Staf / Jurulatih</option>
                 </select>
                 
                 <button onclick="window.print()" class="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md text-sm font-medium transition flex items-center gap-2">
@@ -158,10 +168,13 @@
             </div>
         </div>
 
-        <!-- Jadual Maklumat -->
-        <div class="bg-white rounded-b-lg shadow overflow-hidden">
+        <!-- Jadual Maklumat Jawatankuasa (AJK) -->
+        <div id="ajkSection" class="bg-white rounded-b-lg shadow overflow-hidden mb-8">
+            <div class="bg-military-dark text-white px-4 py-3 font-heading text-xl uppercase tracking-wider flex items-center gap-2 border-b border-military-accent">
+                <i class="fa-solid fa-users text-military-accent"></i> Senarai Jawatankuasa (AJK) Kursus APMS
+            </div>
             <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse" id="ajkTable">
+                <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="military-gradient text-white text-xs uppercase tracking-wider">
                             <th class="py-3.5 px-4 font-semibold">Bil</th>
@@ -172,17 +185,44 @@
                             <th class="py-3.5 px-4 font-semibold">Hubungi (Telefon & WhatsApp)</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-200 text-sm" id="tableBody">
-                        <!-- Data dimasukkan secara dinamik -->
+                    <tbody class="divide-y divide-gray-200 text-sm" id="tableBodyAjk">
+                        <!-- Data AJK dimasukkan secara dinamik -->
                     </tbody>
                 </table>
             </div>
-            
-            <!-- Paparan Jika Tiada Keputusan -->
-            <div id="noResults" class="hidden p-8 text-center text-gray-500">
-                <i class="fa-solid fa-user-slash text-4xl mb-3 text-gray-300"></i>
-                <p>Tiada carian yang berpadanan ditemukan.</p>
+        </div>
+
+        <!-- Jadual Maklumat Staf / Jurulatih -->
+        <div id="stafSection" class="bg-white rounded-lg shadow overflow-hidden mb-6">
+            <div class="bg-military-green text-white px-4 py-3 font-heading text-xl uppercase tracking-wider flex items-center justify-between border-b border-military-accent">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-user-shield text-military-accent"></i> Senarai Staf / Jurulatih (Susunan Pangkat)
+                </div>
+                <span class="text-xs bg-military-accent text-military-dark font-body font-bold px-2 py-0.5 rounded uppercase">Staf Latihan</span>
             </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="military-gradient text-white text-xs uppercase tracking-wider">
+                            <th class="py-3.5 px-4 font-semibold">Bil</th>
+                            <th class="py-3.5 px-4 font-semibold">Pangkat & Jawatan</th>
+                            <th class="py-3.5 px-4 font-semibold">Nama Staf / Jurulatih</th>
+                            <th class="py-3.5 px-4 font-semibold">No. Badan</th>
+                            <th class="py-3.5 px-4 font-semibold">Kategori</th>
+                            <th class="py-3.5 px-4 font-semibold">Hubungi (Telefon & WhatsApp)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm" id="tableBodyStaf">
+                        <!-- Data Staf dimasukkan secara dinamik -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Paparan Jika Tiada Keputusan -->
+        <div id="noResults" class="hidden bg-white p-8 rounded-lg shadow text-center text-gray-500">
+            <i class="fa-solid fa-user-slash text-4xl mb-3 text-gray-300"></i>
+            <p>Tiada carian yang berpadanan ditemukan.</p>
         </div>
 
     </main>
@@ -197,6 +237,7 @@
 
     <!-- Script JavaScript -->
     <script>
+        // Data AJK
         const committeeData = [
             { id: 1, jawatan: "YDP", nama: "AQIL FIKRI BIN NURUL HASWADY", noBadan: "6307356", phone: "018-3174836", type: "UTAMA" },
             { id: 2, jawatan: "NYDP", nama: "MUHAMMAD RAFIQ HAIKAL BIN RUSLI", noBadan: "6310850", phone: "014-3160322", type: "UTAMA" },
@@ -207,17 +248,25 @@
             { id: 7, jawatan: "AJK Makan (Ketua)", nama: "MUHAMMAD AMIRUL IZWAN BIN AHMAD AFANDI", noBadan: "6310841", phone: "011-69702927", type: "AJK" },
             { id: 8, jawatan: "AJK Makan (Pen.)", nama: "MUHAMMAD AMIR SYAHMI BIN ZAKARIA", noBadan: "6310860", phone: "016-3156074", type: "AJK" },
             { id: 9, jawatan: "AJK Multimedia (Ketua)", nama: "MUHAMMAD AMIR RAHMAN BIN AHMAD FADIL", noBadan: "6310856", phone: "011-28927497", type: "AJK" },
-            { id: 10, jawatan: "AJK Multimedia (Pen.)", nama: "[Akan Dikemaskini]", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 10, jawatan: "AJK Multimedia (Pen.)", nama: "NOR ADAM NAJMI BIN NOR IKWAN", noBadan: "6310847", phone: "019-6882695", type: "AJK" },
             { id: 11, jawatan: "AJK Harta (Ketua)", nama: "HANIF SYAZWAN BIN ZAINAL", noBadan: "6310843", phone: "016-6938042", type: "AJK" },
             { id: 12, jawatan: "AJK Harta (Pen.)", nama: "MUHAMAD ANIQ AKMAL BIN MOHD NAZRI", noBadan: "6310863", phone: "019-9395406", type: "AJK" },
-            { id: 13, jawatan: "AJK Agama (Ketua)", nama: "[Akan Dikemaskini]", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 13, jawatan: "AJK Agama (Ketua)", nama: "MUHAMMAD AFIQ ZAKWAN BIN ROSZAIDI", noBadan: "6310684", phone: "011-11480185", type: "AJK" },
             { id: 14, jawatan: "AJK Agama (Pen.)", nama: "MOHAMAD IMRON HANAPI BIN SUHARI", noBadan: "6310859", phone: "010-4601227", type: "AJK" },
-            { id: 15, jawatan: "AJK Senjata (Ketua)", nama: "[Akan Dikemaskini]", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 15, jawatan: "AJK Senjata (Ketua)", nama: "TANG KAI WEN", noBadan: "6311788", phone: "016-4169070", type: "AJK" },
             { id: 16, jawatan: "AJK Senjata (Pen.)", nama: "MUHAMMAD SYAHMI BIN ABD AZIZ", noBadan: "6310849", phone: "011-24046341", type: "AJK" },
-            { id: 17, jawatan: "AJK Kesihatan (Ketua)", nama: "[Akan Dikemaskini]", noBadan: "[Akan Dikemaskini]", phone: "[Akan Dikemaskini]", type: "AJK" },
+            { id: 17, jawatan: "AJK Kesihatan (Ketua)", nama: "SALIZA BINTI MAT SA’AD", noBadan: "6311288", phone: "010-8965828", type: "AJK" },
             { id: 18, jawatan: "AJK Kesihatan (Pen.)", nama: "HELMI BIN NOR ISHAK", noBadan: "6310842", phone: "010-5027552", type: "AJK" },
             { id: 19, jawatan: "AJK Sukan (Ketua)", nama: "AHMAD AIDIL ADHA BIN ZULKEFLI", noBadan: "6310861", phone: "010-8463802", type: "AJK" },
             { id: 20, jawatan: "AJK Sukan (Pen.)", nama: "AIZAM IRFAN BIN SAIFUL SAZLY", noBadan: "6310854", phone: "011-26892296", type: "AJK" }
+        ];
+
+        // Data Staf / Jurulatih (Susunan Pangkat: Sarjan dulu, baru Koperal)
+        const stafData = [
+            { id: 1, jawatan: "Sarjan", nama: "KHAIRUL HAFIZ", noBadan: "[Akan Dikemaskini]", phone: "012-2340766", type: "STAF" },
+            { id: 2, jawatan: "Sarjan", nama: "MAHADIR", noBadan: "[Akan Dikemaskini]", phone: "017-5456466", type: "STAF" },
+            { id: 3, jawatan: "Koperal", nama: "RASHIDI", noBadan: "[Akan Dikemaskini]", phone: "+60 13-621 0826", type: "STAF" },
+            { id: 4, jawatan: "Koperal", nama: "MOHAMAD AFIQ", noBadan: "[Akan Dikemaskini]", phone: "011-2351 2769", type: "STAF" }
         ];
 
         function handleImageError(img) {
@@ -225,7 +274,7 @@
             img.src = 'https://upload.wikimedia.org/wikipedia/commons/2/26/Badge_of_the_Malaysian_Territorial_Army_Regiment.png';
         }
 
-        // Penolong fungsi bagi format nombor telefon antarabangsa
+        // Format nombor telefon antarabangsa
         function getFormattedPhone(phoneStr) {
             let cleanNum = phoneStr.replace(/[^0-9]/g, '');
             if (cleanNum.startsWith('0')) {
@@ -234,72 +283,114 @@
             return cleanNum;
         }
 
-        // Penolong fungsi bagi pautan rasmi WhatsApp
+        // Pautan rasmi WhatsApp
         function getWaUrl(phoneStr, jawatan) {
             const cleanNum = getFormattedPhone(phoneStr);
             const msg = encodeURIComponent(`Salam, saya berhubung berkenaan Kursus APMS Siri 3/2026 Rejimen 509 Askar Wataniah (${jawatan}).`);
             return `https://wa.me/${cleanNum}?text=${msg}`;
         }
 
-        function renderTable(data) {
-            const tbody = document.getElementById('tableBody');
-            const noResults = document.getElementById('noResults');
-            tbody.innerHTML = '';
+        function createRowHTML(item, index) {
+            const isUtama = item.type === 'UTAMA';
+            const isStaf = item.type === 'STAF';
+            
+            let typeBadge = '';
+            if (isUtama) {
+                typeBadge = `<span class="px-2 py-0.5 text-xs font-semibold rounded bg-amber-100 text-amber-800 border border-amber-300">Kepimpinan</span>`;
+            } else if (isStaf) {
+                typeBadge = `<span class="px-2 py-0.5 text-xs font-semibold rounded bg-blue-100 text-blue-800 border border-blue-300">Staf / Jurulatih</span>`;
+            } else {
+                typeBadge = `<span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-100 text-emerald-800 border border-emerald-300">Biro / AJK</span>`;
+            }
 
-            if (data.length === 0) {
+            const noBadanDisplay = item.noBadan.includes('Akan') 
+                ? `<span class="text-gray-400 italic">${item.noBadan}</span>` 
+                : `<span class="font-mono font-bold text-gray-700 bg-gray-100 px-2 py-0.5 rounded border border-gray-200">${item.noBadan}</span>`;
+
+            let phoneDisplay = `<span class="text-gray-400 italic">${item.phone}</span>`;
+            
+            if (!item.phone.includes('Akan')) {
+                const cleanPhone = item.phone.replace(/[^0-9]/g, '');
+                const waUrl = getWaUrl(item.phone, item.jawatan);
+
+                phoneDisplay = `
+                    <div class="flex flex-wrap items-center gap-2">
+                        <a href="tel:${cleanPhone}" title="Panggil Nombor" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded text-gray-700 bg-gray-100 hover:bg-gray-200 border border-gray-300 transition">
+                            <i class="fa-solid fa-phone text-military-green"></i> ${item.phone}
+                        </a>
+                        <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition active:scale-95 cursor-pointer text-decoration-none">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                        </a>
+                    </div>
+                `;
+            }
+
+            return `
+                <td class="py-3 px-4 text-gray-500 font-medium">${index + 1}</td>
+                <td class="py-3 px-4 font-bold text-military-dark">${item.jawatan}</td>
+                <td class="py-3 px-4 font-semibold ${item.nama.includes('Akan') ? 'text-gray-400 italic' : 'text-gray-800'}">${item.nama}</td>
+                <td class="py-3 px-4">${noBadanDisplay}</td>
+                <td class="py-3 px-4">${typeBadge}</td>
+                <td class="py-3 px-4">${phoneDisplay}</td>
+            `;
+        }
+
+        function renderTables(filteredAjk, filteredStaf) {
+            const tbodyAjk = document.getElementById('tableBodyAjk');
+            const tbodyStaf = document.getElementById('tableBodyStaf');
+            const ajkSection = document.getElementById('ajkSection');
+            const stafSection = document.getElementById('stafSection');
+            const noResults = document.getElementById('noResults');
+
+            tbodyAjk.innerHTML = '';
+            tbodyStaf.innerHTML = '';
+
+            const hasAjk = filteredAjk.length > 0;
+            const hasStaf = filteredStaf.length > 0;
+
+            if (!hasAjk && !hasStaf) {
                 noResults.classList.remove('hidden');
+                ajkSection.classList.add('hidden');
+                stafSection.classList.add('hidden');
                 return;
             } else {
                 noResults.classList.add('hidden');
             }
 
-            data.forEach((item, index) => {
-                const tr = document.createElement('tr');
-                tr.className = index % 2 === 0 ? 'bg-white hover:bg-gray-50' : 'bg-gray-50/50 hover:bg-gray-100';
+            if (hasAjk) {
+                ajkSection.classList.remove('hidden');
+                filteredAjk.forEach((item, index) => {
+                    const tr = document.createElement('tr');
+                    tr.className = index % 2 === 0 ? 'bg-white hover:bg-gray-50' : 'bg-gray-50/50 hover:bg-gray-100';
+                    tr.innerHTML = createRowHTML(item, index);
+                    tbodyAjk.appendChild(tr);
+                });
+            } else {
+                ajkSection.classList.add('hidden');
+            }
 
-                const isUtama = item.type === 'UTAMA';
-                const typeBadge = isUtama 
-                    ? `<span class="px-2 py-0.5 text-xs font-semibold rounded bg-amber-100 text-amber-800 border border-amber-300">Kepimpinan</span>`
-                    : `<span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-100 text-emerald-800 border border-emerald-300">Biro / AJK</span>`;
+            if (hasStaf) {
+                stafSection.classList.remove('hidden');
+                filteredStaf.forEach((item, index) => {
+                    const tr = document.createElement('tr');
+                    tr.className = index % 2 === 0 ? 'bg-white hover:bg-gray-50' : 'bg-gray-50/50 hover:bg-gray-100';
+                    tr.innerHTML = createRowHTML(item, index);
+                    tbodyStaf.appendChild(tr);
+                });
+            } else {
+                stafSection.classList.add('hidden');
+            }
 
-                const noBadanDisplay = item.noBadan.includes('Akan') 
-                    ? `<span class="text-gray-400 italic">${item.noBadan}</span>` 
-                    : `<span class="font-mono font-bold text-gray-700 bg-gray-100 px-2 py-0.5 rounded border border-gray-200">${item.noBadan}</span>`;
-
-                let phoneDisplay = `<span class="text-gray-400 italic">${item.phone}</span>`;
-                
-                if (!item.phone.includes('Akan')) {
-                    const cleanPhone = item.phone.replace(/[^0-9]/g, '');
-                    const waUrl = getWaUrl(item.phone, item.jawatan);
-
-                    phoneDisplay = `
-                        <div class="flex flex-wrap items-center gap-2">
-                            <a href="tel:${cleanPhone}" title="Panggil Nombor" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded text-gray-700 bg-gray-100 hover:bg-gray-200 border border-gray-300 transition">
-                                <i class="fa-solid fa-phone text-military-green"></i> ${item.phone}
-                            </a>
-                            <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition active:scale-95 cursor-pointer text-decoration-none">
-                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
-                            </a>
-                        </div>
-                    `;
-                }
-
-                tr.innerHTML = `
-                    <td class="py-3 px-4 text-gray-500 font-medium">${index + 1}</td>
-                    <td class="py-3 px-4 font-bold text-military-dark">${item.jawatan}</td>
-                    <td class="py-3 px-4 font-semibold ${item.nama.includes('Akan') ? 'text-gray-400 italic' : 'text-gray-800'}">${item.nama}</td>
-                    <td class="py-3 px-4">${noBadanDisplay}</td>
-                    <td class="py-3 px-4">${typeBadge}</td>
-                    <td class="py-3 px-4">${phoneDisplay}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-
+            // Kemaskini statistik ringkasan
             document.getElementById('totalCount').innerText = committeeData.length;
+            document.getElementById('stafCount').innerText = stafData.length;
             
-            // Hitung berapa jawatan yang telah dikemas kini maklumat lengkapnya
-            const updated = committeeData.filter(i => !i.noBadan.includes('Akan') && !i.phone.includes('Akan') && !i.nama.includes('Akan')).length;
-            document.getElementById('updatedCount').innerText = `${updated} / ${committeeData.length}`;
+            const updatedAjk = committeeData.filter(i => !i.phone.includes('Akan') && !i.nama.includes('Akan')).length;
+            const updatedStaf = stafData.filter(i => !i.phone.includes('Akan') && !i.nama.includes('Akan')).length;
+            const totalAll = committeeData.length + stafData.length;
+            const updatedAll = updatedAjk + updatedStaf;
+
+            document.getElementById('updatedCount').innerText = `${updatedAll} / ${totalAll}`;
         }
 
         // Fungsi Carian & Filter
@@ -307,16 +398,19 @@
             const query = document.getElementById('searchInput').value.toLowerCase();
             const category = document.getElementById('categoryFilter').value;
 
-            const filtered = committeeData.filter(item => {
+            const filterItem = (item) => {
                 const matchesSearch = item.jawatan.toLowerCase().includes(query) || 
                                       item.nama.toLowerCase().includes(query) || 
                                       item.noBadan.toLowerCase().includes(query) ||
                                       item.phone.toLowerCase().includes(query);
                 const matchesCategory = category === 'ALL' || item.type === category;
                 return matchesSearch && matchesCategory;
-            });
+            };
 
-            renderTable(filtered);
+            const filteredAjk = committeeData.filter(filterItem);
+            const filteredStaf = stafData.filter(filterItem);
+
+            renderTables(filteredAjk, filteredStaf);
         }
 
         document.getElementById('searchInput').addEventListener('input', filterData);
@@ -324,7 +418,7 @@
 
         // Muatkan Data Awal
         window.onload = function() {
-            renderTable(committeeData);
+            renderTables(committeeData, stafData);
         };
     </script>
 </body>
